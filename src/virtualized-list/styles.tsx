@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ListWrapper = styled.div`
+  position: relative;
   display: block;
   box-sizing: content-box;
   padding: 200px;

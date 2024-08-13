@@ -5,6 +5,7 @@ import { Layout } from "./Layout";
 import "./App.css";
 import { Virtua } from "./virtualized-list/Virtua";
 import { Virtuoso } from "./virtualized-list/Vituoso";
+import { TanstackVirtual } from "./virtualized-list/TanstackVirtual";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/tanstack",
-    element: <Layout>@Tanstack/react-virtual</Layout>,
+    element: <TanstackVirtual />,
   },
 ]);
 
