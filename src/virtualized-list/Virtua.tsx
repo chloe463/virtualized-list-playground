@@ -28,8 +28,8 @@ export const Virtua = () => {
           {Array.from({ length: dataSet.length }).map((_, i) => (
             <Card key={i}>{dataSet[i]}</Card>
           ))}
+          {loading && <div>Loading...</div>}
         </WindowVirtualizer>
-        {loading && <div>Loading...</div>}
       </ListWrapper>
     </Layout>
   );
