@@ -4,13 +4,15 @@ export const ListWrapper = styled.div`
   position: relative;
   display: block;
   box-sizing: content-box;
-  padding: 200px;
   & ul {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 0;
+    width: 80%;
+    max-width: 1280px;
+    min-width: 720px;
+    margin: 48px auto;
     padding: 0;
     list-style: none;
   }
