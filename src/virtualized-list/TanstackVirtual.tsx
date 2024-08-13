@@ -3,24 +3,30 @@ import { useWindowVirtualizer } from "@tanstack/react-virtual";
 import { Layout } from "../Layout";
 import { useDataSet } from "./useDataSet";
 import { ListWrapper, Card } from "./styles";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export const TanstackVirtual = () => {
-  const { dataSet } = useDataSet();
+  const { dataSet, appendData } = useDataSet();
   const listWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const virtualizer = useWindowVirtualizer({
     count: dataSet.length,
     estimateSize: () => 32,
     scrollMargin: listWrapperRef.current?.offsetTop ?? 0,
+    overscan: 20,
   });
 
   // 公式ドキュメントにある infinite scroll のサンプルに従って無限スクロールを実現しようとすると、スクロールがおかしなことになる。
   // cf. https://tanstack.com/virtual/latest/docs/framework/react/examples/infinite-scroll
-  // useEffect(() => {
-  //   const [lastItem] = [...virtualizer.getVirtualItems()].reverse();
-  //   console.log(lastItem);
-  // }, [virtualizer]);
+  useEffect(() => {
+    const [lastItem] = [...virtualizer.getVirtualItems()].reverse();
+    const endIndex = lastItem.index;
+    console.log({ endIndex });
+    const threshold = dataSet.length - 5;
+    if (endIndex > threshold) {
+      void appendData();
+    }
+  }, [appendData, dataSet.length, virtualizer]);
 
   return (
     <Layout>
