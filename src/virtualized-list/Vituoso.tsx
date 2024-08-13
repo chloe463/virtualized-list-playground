@@ -1,8 +1,32 @@
-import { Virtuoso as VirtuosoList, type ListRange } from "react-virtuoso";
+import {
+  Virtuoso as VirtuosoList,
+  type ListRange,
+  type Components,
+} from "react-virtuoso";
 
 import { Layout } from "../Layout";
 import { useDataSet } from "./useDataSet";
 import { ListWrapper, Card } from "./styles";
+import { forwardRef } from "react";
+
+const List: Components["List"] = forwardRef((props, ref) => {
+  return (
+    <ul
+      ref={ref as React.RefObject<HTMLUListElement>}
+      {...(props as React.HTMLAttributes<HTMLUListElement>)}
+    >
+      {props.children}
+    </ul>
+  );
+});
+
+const Item: Components["Item"] = forwardRef((props, ref) => {
+  return (
+    <li ref={ref as React.RefObject<HTMLLIElement>} {...props}>
+      {props.children}
+    </li>
+  );
+});
 
 export const Virtuoso = () => {
   const { loading, dataSet, appendData } = useDataSet();
@@ -21,6 +45,7 @@ export const Virtuoso = () => {
       {/* cf. https://virtuoso.dev/endless-scrolling/ */}
       <ListWrapper>
         <VirtuosoList
+          components={{ List, Item }}
           useWindowScroll
           data={dataSet}
           // totalCount={dataSet.length}
