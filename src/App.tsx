@@ -6,6 +6,7 @@ import {
 import { Layout } from "./Layout";
 
 import './App.css';
+import { Virtua } from "./virtualized-list/Virtua";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/virtua",
-    element: <Layout>virtua</Layout>
+    element: <Virtua />
   },
   {
     path: "/virtuoso",
