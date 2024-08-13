@@ -1259,6 +1259,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+virtua@^0.33.5:
+  version "0.33.5"
+  resolved "https://registry.yarnpkg.com/virtua/-/virtua-0.33.5.tgz#c650e9ede0d98a053c5066c7612f416b041546a6"
+  integrity sha512-dpohZLgUartIixJgIiQ6HstlsryHS1PY58lGJooMUGI7zAdFm3tNkaO8WB6BmmpZfpXz58UMsd7D7hOoSQuvfQ==
+
 vite@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.0.tgz#11dca8a961369ba8b5cae42d068c7ad684d5370f"
