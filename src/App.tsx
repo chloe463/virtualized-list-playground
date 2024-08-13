@@ -1,29 +1,27 @@
-import {
-  RouterProvider,
-  createBrowserRouter
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { Layout } from "./Layout";
 
-import './App.css';
+import "./App.css";
 import { Virtua } from "./virtualized-list/Virtua";
+import { Virtuoso } from "./virtualized-list/Vituoso";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout>Home</Layout>
+    element: <Layout>Home</Layout>,
   },
   {
     path: "/virtua",
-    element: <Virtua />
+    element: <Virtua />,
   },
   {
     path: "/virtuoso",
-    element: <Layout>virtuoso</Layout>
+    element: <Virtuoso />,
   },
   {
     path: "/tanstack",
-    element: <Layout>@Tanstack/react-virtual</Layout>
+    element: <Layout>@Tanstack/react-virtual</Layout>,
   },
 ]);
 
@@ -32,7 +30,7 @@ function App() {
     <>
       <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
